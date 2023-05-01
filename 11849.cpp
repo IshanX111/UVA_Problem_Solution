@@ -1,30 +1,27 @@
 #include<bits/stdc++.h>
+typedef long long ll;
 using namespace std;
 int main(){
 
-    long long a,b,x;
-    while(1){
-    cin>>a>>b;
-    if(a==0 && b==0){
-        break;
-    }
-    map<int,int>mp;
-    map<int,int>::iterator itr;
-    for(int i=0;i<a;i++){
-        cin>>x;
-        mp[x]++;
-    }
-    for(int i=0;i<b;i++){
-        cin>>x;
-        mp[x]++;
-    }
-    int c=0;
-    for(itr=mp.begin();itr!=mp.end();itr++){
-        if(itr->second>1){
-            c++;
+    ll n,m;
+    while(cin>>n>>m && n!=0 && m!=0){
+
+        map<ll,ll>mp1;
+        while(n--){
+            ll x;
+            cin>>x;
+            mp1[x]++;
         }
+        int c=0;
+        while(m--){
+            ll x;
+            cin>>x;
+            if(mp1[x]>0){
+                c++;
+            }
+        }
+        cout<<c<<endl;
     }
-    cout<<c<<endl;
-    mp.clear();
-    }
+
 }
+
